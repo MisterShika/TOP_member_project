@@ -8,7 +8,7 @@ const SQL = `
         password VARCHAR(255) NOT NULL,
         fname VARCHAR(255) NOT NULL,
         lname VARCHAR(255) NOT NULL,
-        member BOOLEAN NOT NULL
+        member BOOLEAN NOT NULL DEFAULT false
     );
 
     CREATE TABLE IF NOT EXISTS posts (
