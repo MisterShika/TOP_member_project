@@ -13,9 +13,18 @@ mainRouter.post("/signup", signupController.postUser);
 mainRouter.get("/signin", signinController.getSignIn);
 mainRouter.post("/signin",
     passport.authenticate("local", {
-        successRedirect: "/right",
-        failureRedirect: "/wrong"
+        successRedirect: "/",
+        failureRedirect: "/"
     })
 );
+
+mainRouter.get("/signout", (req, res, next) => {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect("/");
+    });
+});
 
 module.exports = mainRouter;
