@@ -5,6 +5,7 @@ const mainController = require("../controllers/mainController");
 const signupController = require("../controllers/signupController");
 const signinController = require("../controllers/signinController");
 const postController = require("../controllers/postController");
+const accountModifyController = require("../controllers/accountModifyController");
 
 mainRouter.get("/", mainController.getPosts);
 
@@ -30,5 +31,7 @@ mainRouter.get("/signout", (req, res, next) => {
 
 mainRouter.get("/post", postController.getCreatePost);
 mainRouter.post("/post", postController.postCreatePost);
+
+mainRouter.get("/secret-page", accountModifyController.getForm);
 
 module.exports = mainRouter;
