@@ -6,11 +6,24 @@
     <title>Test Website!</title>
 </head>
 <body>
-    Hello World
-    <%= test %>
+    <h1>Members Website</h1>
+    <% if (locals.posts) { %>
+        <% locals.posts.forEach(post => { %>
+            <div>
+                <h2><%= post.title %></h2>
+                <% if (locals.user) {%>
+                    <h3><%= post.fname %> <%= post.lname %></h3>
+                <% } else { %>
+                    <h3>Anonymous</h3>
+                <% } %>
+                <p><%= post.content %></p>
+            </div>
+        <% }) %>
+    <% } %>
     <a href="/signup">Sign Up!</a>
     <a href="/signin">Sign In!</a>
     <% if (locals.user) {%>
+        <a href="/post">Create Post</a>
         <a href="/signout">Sign Out!</a>
     <% } %>
 </body>

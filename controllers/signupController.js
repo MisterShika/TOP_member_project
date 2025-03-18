@@ -7,7 +7,7 @@ async function getForm(req, res) {
 async function postUser(req, res) {
     const user = req.body;
     await db.addUser(user);
-    res.redirect("/");
+    res.redirect("/post");
 }
 
 module.exports = {

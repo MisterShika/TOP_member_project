@@ -4,6 +4,7 @@ const mainRouter = Router();
 const mainController = require("../controllers/mainController");
 const signupController = require("../controllers/signupController");
 const signinController = require("../controllers/signinController");
+const postController = require("../controllers/postController");
 
 mainRouter.get("/", mainController.getPosts);
 
@@ -26,5 +27,8 @@ mainRouter.get("/signout", (req, res, next) => {
         res.redirect("/");
     });
 });
+
+mainRouter.get("/post", postController.getCreatePost);
+mainRouter.post("/post", postController.postCreatePost);
 
 module.exports = mainRouter;

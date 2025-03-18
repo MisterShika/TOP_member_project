@@ -1,9 +1,9 @@
 const db = require("../db/queries");
 
 async function getPosts(req, res) {
-    const testValue = "Value passed";
+    const posts = await db.getPosts();
     res.render("index", {
-        test: testValue,
+        posts: posts,
         user: req.user
     }); 
 }

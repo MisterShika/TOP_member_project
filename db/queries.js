@@ -10,6 +10,24 @@ async function addUser(user){
     console.log(`Added Email: ${email}, Password: ${hashedPassword}`);
 }
 
+async function getPosts(){
+    const {rows} = await db.query(`
+        SELECT posts.*, users.fname, users.lname
+        FROM posts
+        JOIN users ON posts.creator = users.id
+    `);
+    return rows;
+}
+
+async function addPost(user, post){
+
+    const {id} = user;
+    const {postTitle, postContent} = post;
+    await db.query("INSERT INTO posts (creator, title, content) values ($1, $2, $3)", [id, postTitle, postContent]);
+}
+
 module.exports = {
-    addUser
+    addUser,
+    getPosts,
+    addPost,
 };

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Post</title>
+</head>
+<body>
+    <% if (locals.user) {%>
+        <h1>Make Post</h1>
+        <form action="/post" method="POST">
+            <div>
+                <label for="postTitle">Title:</label>
+                <input type="postTitle" id="postTitle" name="postTitle" required />
+            </div>
+            <div>
+                <label for="postContent">Content:</label>
+                <textarea type="postContent" id="postContent" name="postContent" required></textarea>
+            </div>
+            <button type="submit">Post</button>
+        </form>
+    <% } else { %>
+        <a href="/signup">Sign Up!</a>
+        <a href="/signin">Sign In!</a>
+    <% } %>
+</body>
+</html>
