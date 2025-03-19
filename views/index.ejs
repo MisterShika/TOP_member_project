@@ -11,10 +11,13 @@
         <% locals.posts.forEach(post => { %>
             <div>
                 <h2><%= post.title %></h2>
-                <% if (locals.user) {%>
+                <% if (locals.user && locals.user.member == true)  {%>
                     <h3><%= post.fname %> <%= post.lname %></h3>
                 <% } else { %>
                     <h3>Anonymous</h3>
+                <% } %>
+                <% if (locals.user && locals.user.member == true)  {%>
+                    <%= post.time %>
                 <% } %>
                 <p><%= post.content %></p>
             </div>
