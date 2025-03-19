@@ -1,12 +1,12 @@
 const db = require("../db/queries");
 
-async function getForm (req, res) {
+async function getMembershipForm (req, res) {
     res.render("secretPage", {
         user: req.user
     }); 
 }
 
-async function postForm (req, res) {
+async function postMembershipForm (req, res) {
     const user = req.user;
     const magicWord = "magic";
     const {secretCode} = req.body;
@@ -16,7 +16,14 @@ async function postForm (req, res) {
     res.redirect("/");
 }
 
+async function getAdminForm (req, res) {
+    res.render("adminPage", {
+        user: req.user
+    });
+}
+
 module.exports = {
-    getForm,
-    postForm
+    getMembershipForm,
+    postMembershipForm,
+    getAdminForm
 }

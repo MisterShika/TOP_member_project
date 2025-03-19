@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<body>
+    <% if (locals.user) {%>
+        <h1>Set Admin Status</h1>
+        <form action="/admin" method="POST">
+            <div>
+                <input type="checkbox" id="isAdmin" name="isAdmin" />
+                <label for="isAdmin">Admin Toggle</label>
+            </div>
+            <button type="submit">Upgrade</button>
+        </form>
+    <% } else { %>
+        <a href="/signup">Sign Up!</a>
+        <a href="/signin">Sign In!</a>
+    <% } %>
+</body>
+</html>

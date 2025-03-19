@@ -32,7 +32,9 @@ mainRouter.get("/signout", (req, res, next) => {
 mainRouter.get("/post", postController.getCreatePost);
 mainRouter.post("/post", postController.postCreatePost);
 
-mainRouter.get("/secret-page", accountModifyController.getForm);
-mainRouter.post("/secret-page", accountModifyController.postForm);
+mainRouter.get("/secret-page", accountModifyController.getMembershipForm);
+mainRouter.post("/secret-page", accountModifyController.postMembershipForm);
+
+mainRouter.get("/admin", accountModifyController.getAdminForm);
 
 module.exports = mainRouter;
