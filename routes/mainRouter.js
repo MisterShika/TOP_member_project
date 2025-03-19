@@ -33,5 +33,6 @@ mainRouter.get("/post", postController.getCreatePost);
 mainRouter.post("/post", postController.postCreatePost);
 
 mainRouter.get("/secret-page", accountModifyController.getForm);
+mainRouter.post("/secret-page", accountModifyController.postForm);
 
 module.exports = mainRouter;

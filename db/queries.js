@@ -20,14 +20,23 @@ async function getPosts(){
 }
 
 async function addPost(user, post){
-
     const {id} = user;
     const {postTitle, postContent} = post;
     await db.query("INSERT INTO posts (creator, title, content) values ($1, $2, $3)", [id, postTitle, postContent]);
+}
+
+async function switchMembership(user){
+    const {id} = user;
+    await db.query(`
+        UPDATE users
+        SET member = NOT member
+        WHERE id = $1
+    `, [id]);
 }
 
 module.exports = {
     addUser,
     getPosts,
     addPost,
+    switchMembership
 };
