@@ -43,10 +43,18 @@ async function switchAdminship(user, data){
     `, [id, data]);
 }
 
+async function deletePost(id){
+    await db.query(`
+        DELETE FROM posts
+        WHERE id = $1
+    `, [id]);
+}
+
 module.exports = {
     addUser,
     getPosts,
     addPost,
     switchMembership,
-    switchAdminship
+    switchAdminship,
+    deletePost
 };

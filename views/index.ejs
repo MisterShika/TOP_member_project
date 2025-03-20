@@ -20,6 +20,12 @@
                     <%= post.time %>
                 <% } %>
                 <p><%= post.content %></p>
+                <% if (locals.user && locals.user.is_admin == true) { %>
+                    <form action="/post/delete" method="POST">
+                        <input type="hidden" name="id" value="<%= post.id %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                <% } %>
             </div>
         <% }) %>
     <% } %>

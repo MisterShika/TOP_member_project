@@ -8,14 +8,23 @@ async function getCreatePost (req, res) {
 
 async function postCreatePost (req, res) {
     const newPost = req.body;
-    console.log(JSON.stringify(newPost, null, 2));
     const user = req.user;
-    console.log(JSON.stringify(user, null, 2));
     db.addPost(user, newPost);
+    res.redirect("/");
+}
+
+async function postDeletePost (req, res) {
+    const user = req.user;
+    const deletePostId = req.body.id;
+
+    if(user.is_admin == true){
+        await db.deletePost(deletePostId);
+    }
     res.redirect("/");
 }
 
 module.exports = {
     getCreatePost,
-    postCreatePost
+    postCreatePost,
+    postDeletePost
 }

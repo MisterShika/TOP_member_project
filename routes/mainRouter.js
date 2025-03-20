@@ -32,6 +32,8 @@ mainRouter.get("/signout", (req, res, next) => {
 mainRouter.get("/post", postController.getCreatePost);
 mainRouter.post("/post", postController.postCreatePost);
 
+mainRouter.post("/post/delete", postController.postDeletePost);
+
 mainRouter.get("/secret-page", accountModifyController.getMembershipForm);
 mainRouter.post("/secret-page", accountModifyController.postMembershipForm);
 
