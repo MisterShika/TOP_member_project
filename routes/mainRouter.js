@@ -36,5 +36,6 @@ mainRouter.get("/secret-page", accountModifyController.getMembershipForm);
 mainRouter.post("/secret-page", accountModifyController.postMembershipForm);
 
 mainRouter.get("/admin", accountModifyController.getAdminForm);
+mainRouter.post("/admin", accountModifyController.postAdminForm);
 
 module.exports = mainRouter;

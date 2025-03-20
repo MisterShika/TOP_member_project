@@ -22,8 +22,16 @@ async function getAdminForm (req, res) {
     });
 }
 
+async function postAdminForm (req, res) {
+    const adminData = req.body.isAdmin === 'on';
+    const user = req.user;
+    await db.switchAdminship(user, adminData);
+    res.redirect("/");
+}
+
 module.exports = {
     getMembershipForm,
     postMembershipForm,
-    getAdminForm
+    getAdminForm,
+    postAdminForm
 }

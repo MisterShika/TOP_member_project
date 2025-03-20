@@ -34,9 +34,19 @@ async function switchMembership(user){
     `, [id]);
 }
 
+async function switchAdminship(user, data){
+    const {id} = user;
+    await db.query(`
+        UPDATE users
+        SET is_admin = $2
+        WHERE id = $1
+    `, [id, data]);
+}
+
 module.exports = {
     addUser,
     getPosts,
     addPost,
-    switchMembership
+    switchMembership,
+    switchAdminship
 };

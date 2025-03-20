@@ -10,10 +10,10 @@
         <h1>Set Admin Status</h1>
         <form action="/admin" method="POST">
             <div>
-                <input type="checkbox" id="isAdmin" name="isAdmin" />
+                <input type="checkbox" id="isAdmin" name="isAdmin" <%= user.is_admin ? 'checked' : '' %>/>
                 <label for="isAdmin">Admin Toggle</label>
             </div>
-            <button type="submit">Upgrade</button>
+            <button type="submit">Update</button>
         </form>
     <% } else { %>
         <a href="/signup">Sign Up!</a>
